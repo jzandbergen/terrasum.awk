@@ -10,7 +10,7 @@ BEGIN {
 func colorize(color, string) {
   # Thanks @JBlond!
   # https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124
-  ansi_reset = "\033\[0m"
+  ansi_reset = "\033[[]0m"
   switch (color) {
     case "red":
       color_code = 31
