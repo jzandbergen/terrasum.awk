@@ -64,7 +64,9 @@ $0 ~ /^.+(will|must) be .+$/ {
     case /replaced(\033\[0m)?$/:
       op = "replace"
       break
-    case /destroyed(\033\[0m)?$/:
+    case /destroyed(\033\[0m\033\[0m)?$/: # funny, tofu resets the cli twice.
+                                          # most likely once for the color and
+                                          # once for the bold.
       op = "destroy"
       break
     default:
