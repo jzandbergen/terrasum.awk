@@ -61,7 +61,7 @@ $0 ~ /^.+(will|must) be .+$/ {
     case /updated in-place(\033\[0m)?$/:
       op = "in-place update"
       break
-    case /replaced(\033\[0m)?$/:
+    case /replaced(\033\[0m\033\[0m)?$/:
       op = "replace"
       break
     case /destroyed(\033\[0m\033\[0m)?$/: # funny, tofu resets the cli twice.
