@@ -58,7 +58,7 @@ $0 ~ /^.+(will|must) be .+$/ {
     case /created(\033\[0m)?$/:
       op = "create"
       break
-    case /updated in-place$/:
+    case /updated in-place(\033\[0m)?$/:
       op = "in-place update"
       break
     case /replaced(\033\[0m)?$/:
