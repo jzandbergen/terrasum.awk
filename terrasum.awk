@@ -61,6 +61,9 @@ $0 ~ /^.+(will|must) be .+$/ {
     case /updated in-place(\033\[0m)?$/:
       op = "in-place update"
       break
+    case /replaced(\033\[0m)? due to changes in replace_triggered_by(\033\[0m)?$/:
+      op = "replace triggered by parent"
+      break
     case /replaced(\033\[0m\033\[0m)?$/:
       op = "replace"
       break
@@ -127,6 +130,9 @@ END {
           colored_op = colorize("red", this_op)
           break
         case "replace":
+          colored_op = colorize("red", this_op)
+          break
+        case "replace triggered by parent":
           colored_op = colorize("red", this_op)
           break
         case "unknown":
